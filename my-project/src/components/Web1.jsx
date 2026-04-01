@@ -4,7 +4,7 @@ import Hero from "./Hero";
 import Features from "./Feature";
 import Schedule from "./Schedule";
 import Monitor from "./Monitor";
-import Service from "./service";
+import Service from "./Service";
 import Price from "./price";
 import Footer from "./footer";
 
