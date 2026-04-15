@@ -1,21 +1,18 @@
-import { useState } from "react";
 import "./App.css";
-import Web1 from "./components/Web1";
-import NavBar from "./components1/NavBar"
-import Banner from "./components1/Banner"
-import Courselist from "./components1/Courselist"
-import WhyChooseUS from "./components1/WhyChooseUS"
-import Footer from "./components1/Footer"
+import NavBar from "./components1/NavBar";
+import HeroSection from "./components1/HeroSection";
+import MenuSection from "./components1/MenuSection";
+import ChefSection from "./components1/ChefSection";
+import Footer from "./components1/Footer";
 
 function App() {
   return (
     <>
-    {/* <Web1/> */}
-      <NavBar/>
-      <Banner/>
-      <Courselist/>
-      <WhyChooseUS/>
-      <Footer/>
+      <NavBar />
+      <HeroSection />
+      <MenuSection />
+      <ChefSection />
+      <Footer />
     </>
   );
 }
