@@ -1,8 +1,8 @@
 import React from "react";
-import { cheffInfo } from "./data";
+import { chefInfo } from "./data";
 
 const ChefSection = () => {
-  const chef = cheffInfo[0];
+  const chef = chefInfo;
   return (
     <section id="about" className="bg-[#fff7ed] px-6 py-16 md:px-10 lg:px-16">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.1fr_1fr] items-center">
