@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { brandName, navLinks } from "./data";
+import AuthModal from "./AuthModal";
+import Orders from "./Orders";
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const [authMode, setAuthMode] = useState("login");
+  const [isOrdersOpen, setIsOrdersOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+    <>
+      <header className="sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
         <a href="#home" className="text-xl font-bold text-orange-500">
           {brandName}
         </a>
@@ -25,12 +31,32 @@ const Nav = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <a
-            href="#"
-            className="rounded-full border bg-amber-500 border-orange-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-slate-50"
+          <button
+            onClick={() => {
+              setIsOrdersOpen(true);
+            }}
+            className="rounded-full border border-orange-500 px-5 py-2 text-sm font-semibold text-orange-500 transition hover:bg-orange-50"
+          >
+            My Orders
+          </button>
+          <button
+            onClick={() => {
+              setAuthMode("booking");
+              setIsAuthOpen(true);
+            }}
+            className="rounded-full border bg-amber-500 border-orange-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-amber-600"
           >
             Book Table
-          </a>
+          </button>
+          <button
+            onClick={() => {
+              setAuthMode("login");
+              setIsAuthOpen(true);
+            }}
+            className="rounded-full border border-orange-500 px-5 py-2 text-sm font-semibold text-orange-500 transition hover:bg-orange-50"
+          >
+            Login
+          </button>
         </div>
 
         <button
@@ -55,11 +81,50 @@ const Nav = () => {
                 {link.name}
               </a>
             ))}
-            
+            <button
+              onClick={() => {
+                setAuthMode("booking");
+                setIsAuthOpen(true);
+                setOpen(false);
+              }}
+              className="w-full rounded-2xl bg-amber-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-amber-600"
+            >
+              Book Table
+            </button>
+            <button
+              onClick={() => {
+                setAuthMode("login");
+                setIsAuthOpen(true);
+                setOpen(false);
+              }}
+              className="w-full rounded-2xl border border-orange-500 px-4 py-3 text-sm font-semibold text-orange-500 transition hover:bg-orange-50"
+            >
+              Login
+            </button>
+            <button
+              onClick={() => {
+                setIsOrdersOpen(true);
+                setOpen(false);
+              }}
+              className="w-full rounded-2xl border border-orange-500 px-4 py-3 text-sm font-semibold text-orange-500 transition hover:bg-orange-50"
+            >
+              My Orders
+            </button>
           </div>
         </div>
       )}
-    </header>
+
+      <AuthModal
+        isOpen={isAuthOpen}
+        onClose={() => setIsAuthOpen(false)}
+        mode={authMode}
+        onToggleMode={() => {
+          setAuthMode(authMode === "login" ? "booking" : "login");
+        }}
+      />
+      </header>
+      <Orders isOpen={isOrdersOpen} onClose={() => setIsOrdersOpen(false)} />
+    </>
   );
 };
 

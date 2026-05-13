@@ -33,6 +33,7 @@ export const navLinks = [
 export const dishes = [
   {
     id: 1,
+    order: "Order FH-2048",
     name: "Grilled Steak",
     description: "Juicy grilled beef served with vegetables.",
     price: "$18",
@@ -40,6 +41,7 @@ export const dishes = [
   },
   {
     id: 2,
+    order: "Order FH-2047",
     name: "Italian Pasta",
     description: "Creamy pasta with fresh herbs and parmesan cheese.",
     price: "$14",
@@ -47,6 +49,7 @@ export const dishes = [
   },
   {
     id: 3,
+    order: "Order FH-2041",
     name: "Healthy Salad",
     description: "Fresh vegetables with a light lemon dressing.",
     price: "$10",
@@ -57,6 +60,8 @@ export const dishes = [
 export const menuDetails = [
   {
     id: 1,
+    order: "Order FH-2048",
+
     name: "Grilled Steak",
     price: "$18",
     serving: "Serves 1",
@@ -71,6 +76,8 @@ export const menuDetails = [
   },
   {
     id: 2,
+    order: "Order FH-2047",
+
     name: "Italian Pasta",
     price: "$14",
     serving: "Serves 1",
@@ -85,6 +92,7 @@ export const menuDetails = [
   },
   {
     id: 3,
+    order: "Order FH-2041",
     name: "Healthy Salad",
     price: "$10",
     serving: "Serves 1",

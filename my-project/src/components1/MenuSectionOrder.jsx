@@ -1,7 +1,10 @@
 import React from "react";
 import { menuDetails } from "./data";
+import { useOrders } from "./OrderContext";
 
 const MenuSectionOrder = ({ isOpen, onClose }) => {
+  const { orders, addOrder } = useOrders();
+
   if (!isOpen) return null;
 
   return (
@@ -52,6 +55,17 @@ const MenuSectionOrder = ({ isOpen, onClose }) => {
                   </p>
                 ))}
               </div>
+              <button
+                onClick={() => {
+                  addOrder(item);
+                }}
+                disabled={orders.some((o) => o.id === item.id)}
+                className="mt-4 w-full rounded-md bg-orange-500 px-4 py-2 font-semibold text-white transition hover:bg-orange-600 disabled:bg-slate-300 disabled:cursor-not-allowed"
+              >
+                {orders.some((o) => o.id === item.id)
+                  ? "Added"
+                  : "Add to My Orders"}
+              </button>
             </div>
           ))}
         </div>
